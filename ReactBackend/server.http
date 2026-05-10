@@ -1,10 +1,8 @@
 ### Test Server
-GET http://localhost:5000/
+GET https://emp-management-app.onrender.com/
 
 ### Create Employee
-# FIXED: Removed the double localhost and used /employee-api/employees
-### Create Another Employee
-POST http://localhost:5000/employee-api/employees
+POST https://emp-management-app.onrender.com/employee-api/employees
 Content-Type: application/json
 
 {
@@ -15,16 +13,13 @@ Content-Type: application/json
   "companyName": "XYZ Corp"
 }
 ### Get All Employees
-# FIXED: Changed /employeeapp to /employee-api
-GET http://localhost:5000/employee-api/employees
+GET https://emp-management-app.onrender.com/employee-api/employees
 
 ### Get Employee by ID
-# FIXED: Changed prefix to /employee-api
-GET http://localhost:5000/employee-api/employees/69ca2aab452424873a28218b
+GET https://emp-management-app.onrender.com/employee-api/employees/69ca2aab452424873a28218b
 
 ### Update Employee
-# FIXED: Changed prefix to /employee-api
-PUT http://localhost:5000/employee-api/employees/69ca2aab452424873a28218b
+PUT https://emp-management-app.onrender.com/employee-api/employees/69ca2aab452424873a28218b
 Content-Type: application/json
 
 {
@@ -32,5 +27,4 @@ Content-Type: application/json
 }
 
 ### Delete Employee
-# FIXED: Changed prefix to /employee-api
-DELETE http://localhost:5000/employee-api/employees/69ca2aab452424873a28218b
+DELETE https://emp-management-app.onrender.com/employee-api/employees/69ca2aab452424873a28218b

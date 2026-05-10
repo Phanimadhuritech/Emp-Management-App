@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function CreateEmp() {
   const [loading, setLoading] = useState(false);
-  const [error,setError]=useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const {
@@ -15,12 +15,12 @@ function CreateEmp() {
 
   //form submit
   const onFormSubmit = async (newEmpObj) => {
-    try{
+    try {
       setLoading(true);
       //make HTTP POST req to create new employee
-      let res = await fetch("http://localhost:5000/employee-api/employees" ,{
-        method:"POST",
-        headers: { "Content-Type":"application/json"},
+      let res = await fetch("https://emp-management-app.onrender.com/employee-api/employees", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newEmpObj),
       });
 
@@ -29,11 +29,11 @@ function CreateEmp() {
         navigate("/list");
       } else {
         let errorRes = await res.json();
-        console.log("error response is ",errorRes);
+        console.log("error response is ", errorRes);
         throw new Error(errorRes.reason);
       }
     } catch (err) {
-      console.log("err in catch",err);
+      console.log("err in catch", err);
       //deal with err
       setError(err.message);
     } finally {
@@ -42,10 +42,10 @@ function CreateEmp() {
   };
   console.log(error);
 
-  if(loading){
+  if (loading) {
     return <p className="text-center text-4xl">Loading....</p>
   }
-  if(error){
+  if (error) {
     return <p className="text-red-600 text-center text-3xl">{error}</p>
   }
 

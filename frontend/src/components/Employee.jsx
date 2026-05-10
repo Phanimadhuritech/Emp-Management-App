@@ -1,4 +1,4 @@
-import { useLocation } from "react-router"
+import { useLocation } from "react-router-dom";
 import { useContext } from 'react';
 import { counterContextObj } from "../contexts/ContextProvider";
 

@@ -1,46 +1,50 @@
 import { useForm } from "react-hook-form"
-import { useLocation , useNavigate } from "react-router"
-import { useEffect ,useContext } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
+import { useEffect, useContext } from "react"
 import axios from "axios";
 import { counterContextObj } from "../contexts/ContextProvider";
 function EditEmployee() {
-const{ counter, changeCounter } = useContext(counterContextObj);
- const {
-  register,
-  handleSubmit,
-  setValue,
-  formState: { errors },
-} = useForm();
+  const { counter, changeCounter } = useContext(counterContextObj);
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm();
 
-//get data from empOm navigate hook
- const {state}=useLocation();
- const navigate = useNavigate();
+  //get data from empOm navigate hook
+  const { state } = useLocation();
+  const navigate = useNavigate();
 
 
- useEffect(()=>{
-  if (state !== null) {
-  setValue("name",state.name);
-  setValue("email",state.email);
-  setValue("mobile",state.mobile);
-  setValue("designation",state.designation);
-  setValue("companyName",state.companyName);
+  useEffect(() => {
+    if (state !== null) {
+      setValue("name", state.name);
+      setValue("email", state.email);
+      setValue("mobile", state.mobile);
+      setValue("designation", state.designation);
+      setValue("companyName", state.companyName);
+    }
+  }, [state, setValue]);
+
+  const saveModifiedEmp = async (modifiedEmp) => {
+    console.log(modifiedEmp)
+    //make http PUT req install anxios 
+    if(!state?._id) return;
+    const res = await axios.put(
+      `https://emp-management-app.onrender.com/employee-api/employees/${state._id}`,
+       modifiedEmp
+      );
+    if (res.status === 200) {
+      //navigate to ListOgEmps
+      navigate("/list");
+    }
+
   }
- },[state,setValue]);
-
- const saveModifiedEmp=async(modifiedEmp)=>{
-  console.log(modifiedEmp)
-  //make http PUT req install anxios 
-  const res = await axios.put(`http://localhost:5000/employee-api/employees/${state._id}`, modifiedEmp)
-  if(res.status===200){
-    //navigate to ListOgEmps
-    navigate("/list");
-  }
-
- }
   return (
     <div>
       <h1 className="text-5xl text-center text-gray-600">Edit Employee</h1>
-         <h1 className='text-4xl'> Counter: {counter}</h1>
+      <h1 className='text-4xl'> Counter: {counter}</h1>
       <button onClick={changeCounter} className='bg-amber-300 p-5'>Change</button>
       {/* form */}
       <form className=" max-w-md mx-auto mt-10" onSubmit={handleSubmit(saveModifiedEmp)}>
