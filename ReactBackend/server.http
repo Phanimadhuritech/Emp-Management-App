@@ -1,0 +1,36 @@
+### Test Server
+GET http://localhost:5000/
+
+### Create Employee
+# FIXED: Removed the double localhost and used /employee-api/employees
+### Create Another Employee
+POST http://localhost:5000/employee-api/employees
+Content-Type: application/json
+
+{
+  "name": "Sita",
+  "email": "sita@gmail.com", 
+  "mobile": 9988776655,
+  "designation": "Manager",
+  "companyName": "XYZ Corp"
+}
+### Get All Employees
+# FIXED: Changed /employeeapp to /employee-api
+GET http://localhost:5000/employee-api/employees
+
+### Get Employee by ID
+# FIXED: Changed prefix to /employee-api
+GET http://localhost:5000/employee-api/employees/69ca2aab452424873a28218b
+
+### Update Employee
+# FIXED: Changed prefix to /employee-api
+PUT http://localhost:5000/employee-api/employees/69ca2aab452424873a28218b
+Content-Type: application/json
+
+{
+  "designation": "Senior Developer"
+}
+
+### Delete Employee
+# FIXED: Changed prefix to /employee-api
+DELETE http://localhost:5000/employee-api/employees/69ca2aab452424873a28218b
