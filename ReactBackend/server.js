@@ -10,14 +10,14 @@ const app = exp();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors({
-  origin: [
-    "https://emp-management-app-chi.vercel.app",
-    "https://emp-management-6dw0jzhrw-phani-madhuri-vadlamani-s-projects.vercel.app"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
+app.use(cors(
+  // origin: [
+  //   "https://emp-management-app-chi.vercel.app",
+  //   "https://emp-management-6dw0jzhrw-phani-madhuri-vadlamani-s-projects.vercel.app"
+  // ],
+  // methods: ["GET", "POST", "PUT", "DELETE"],
+  // credentials: true
+));
 
 app.use(exp.json());
 
