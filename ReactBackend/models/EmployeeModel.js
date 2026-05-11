@@ -6,25 +6,29 @@ const empSchema = new Schema(
       type: String,
       required: [true, 'Name of the employee is mandatory']
     },
+
     email: {
       type: String,
       required: [true, 'Email of employee is required'],
       unique: true
     },
+
     mobile: {
       type: String,
-      required: true,
+      required: [true, 'Mobile number is required'],
       validate: {
         validator: function (v) {
-          return v.length === 10;
+          return /^\d{10}$/.test(v);
         },
-        message: "Mobile number must be 10 digits"
+        message: 'Mobile number must be exactly 10 digits'
       }
     },
+
     designation: {
       type: String,
       required: [true, 'Designation of employee is required']
     },
+
     companyName: {
       type: String,
       required: [true, 'Company name of employee is required']
