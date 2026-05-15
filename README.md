@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Employee Management System
 
 A full-stack MERN employee management app for creating, viewing, editing, and deleting employee records.
@@ -78,3 +79,12 @@ PORT=5000
 - Backend URL: `https://emp-management-app.onrender.com`
 - Database connection is managed through the `DB_URL` environment variable.
 - Vercel SPA routing is configured in `frontend/vercel.json`.
+=======
+# Employee Management App
+
+## Live Demo
+Frontend: https://emp-management-app-chi.vercel.app 
+
+## Backend API
+https://emp-management-app.onrender.com
+>>>>>>> 4e7c5e4ba278bf3d3382f3f7a1e646666dd2bdce
